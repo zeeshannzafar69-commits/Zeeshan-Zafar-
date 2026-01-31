@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrazY x Malik - YouTube Automation Mastery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff006e;
+            --secondary: #8338ec;
+            --accent: #3a86ff;
+            --dark: #0a0a0a;
+            --darker: #050505;
+            --light: #ffffff;
+            --gray: #888888;
+            --gradient: linear-gradient(135deg, #ff006e 0%, #8338ec 50%, #3a86ff 100%);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .brand {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--light);
+        }
+
+        .nav-cta {
+            background: var(--gradient);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 6rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 0, 110, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero-content h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(255, 0, 110, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 2rem;
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: transform 0.5s;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-card:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+        }
+
+        .video-preview {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border-radius: 20px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.4);
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge-1 { top: 20px; right: -20px; animation: float 3s ease-in-out infinite; }
+        .badge-2 { bottom: 40px; left: -30px; animation: float 3s ease-in-out infinite 0.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 6rem 5%;
+            background: var(--dark);
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(255, 0, 110, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 0, 110, 0.2);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pain-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pain-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .pain-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .pain-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .pain-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 0, 110, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .pain-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--light);
+        }
+
+        .pain-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 6rem 5%;
+            position: relative;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 4rem;
+        }
+
+        .solution-content h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .solution-content p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            space-y: 1rem;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-list li i {
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .solution-visual {
+            position: relative;
+        }
+
+        .dashboard-mockup {
+            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+            border-radius: 25px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .mockup-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ff5f57; }
+        .dot-yellow { background: #febc2e; }
+        .dot-green { background: #28c840; }
+
+        .mockup-content {
+            space-y: 1rem;
+        }
+
+        .mockup-stat {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mockup-stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .mockup-stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Curriculum Section */
+        .curriculum {
+            padding: 6rem 5%;
+            background: var(--dark);
+        }
+
+        .modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .module-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(255, 0, 110, 0.1);
+        }
+
+        .module-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: rgba(255, 0, 110, 0.2);
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            line-height: 1;
+        }
+
+        .module-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .module-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .module-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .module-topics {
+            list-style: none;
+            font-size: 0.95rem;
+        }
+
+        .module-topics li {
+            padding: 0.5rem 0;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .module-topics li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(131, 56, 236, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .testimonial-card.featured {
+            background: linear-gradient(145deg, rgba(255, 0, 110, 0.1), rgba(131, 56, 236, 0.05));
+            border-color: rgba(255, 0, 110, 0.3);
+            transform: scale(1.05);
+        }
+
+        .stars {
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 0.2rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--light);
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .results-tag {
+            display: inline-block;
+            background: rgba(255, 0, 110, 0.2);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 6rem 5%;
+            background: var(--dark);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 4rem auto 0;
+            align-items: center;
+        }
+
+        .pricing-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.popular {
+            background: linear-gradient(145deg, rgba(255, 0, 110, 0.1), rgba(131, 56, 236, 0.1));
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 0, 110, 0.2);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card .description {
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .price {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .price-period {
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2.5rem;
+        }
+
+        .pricing-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--gray);
+        }
+
+        .pricing-features li i {
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .pricing-features li.included {
+            color: var(--light);
+        }
+
+        .btn-pricing {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-pricing:hover {
+            background: var(--gradient);
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        .popular .btn-pricing {
+            background: var(--gradient);
+            border-color: transparent;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 6rem 5%;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 4rem auto 0;
+        }
+
+        .faq-item {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .faq-answer {
+            padding: 0 2rem 1.5rem;
+            color: var(--gray);
+            line-height: 1.8;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+            color: var(--primary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, rgba(255, 0, 110, 0.1), rgba(131, 56, 236, 0.1));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            position: relative;
+        }
+
+        .cta-box h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5% 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--darker);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .brand {
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .cta-group {
+                justify-content: center;
+            }
+
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .modules {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="brand">CrazY x Malik</div>
+            <ul class="nav-links">
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#curriculum">Curriculum</a></li>
+                <li><a href="#testimonials">Results</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+            </ul>
+            <a href="#pricing" class="nav-cta">Enroll Now</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Build a <span>YouTube Empire</span> Without Showing Your Face</h1>
+                <p class="hero-subtitle">Master the exact automation system that generates $10K-$50K/month through faceless YouTube channels. No filming. No editing. Just results.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">2,500+</span>
+                        <span class="stat-label">Students</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">$4M+</span>
+                        <span class="stat-label">Revenue Generated</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+
+                <div class="cta-group">
+                    <a href="#pricing" class="btn-primary">
+                        Start Your Journey
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                    <a href="#solution" class="btn-secondary">
+                        <i data-lucide="play-circle"></i>
+                        Watch Demo
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="video-preview">
+                        <div class="play-button">
+                            <i data-lucide="play" style="width: 32px; height: 32px; color: white; margin-left: 4px;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="font-weight: 700; margin-bottom: 0.3rem;">Channel Growth Blueprint</div>
+                            <div style="color: var(--gray); font-size: 0.9rem;">Module 1 • 12 minutes</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">
+                            Preview
+                        </div>
+                    </div>
+                    
+                    <div class="floating-badge badge-1">
+                        <i data-lucide="trending-up" style="color: var(--primary);"></i>
+                        +340% Growth
+                    </div>
+                    <div class="floating-badge badge-2">
+                        <i data-lucide="dollar-sign" style="color: var(--accent);"></i>
+                        $12.4K This Month
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem" id="problem">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">The Reality Check</div>
+                <h2 class="section-title">Why Most YouTubers Fail</h2>
+                <p class="section-subtitle">You've tried the tutorials. You've bought the cheap courses. But you're still stuck. Here's why:</p>
+            </div>
+
+            <div class="pain-points">
+                <div class="pain-card">
+                    <div class="pain-icon">
+                        <i data-lucide="camera-off" style="width: 30px; height: 30px;"></i>
+                    </div>
+                    <h3>Camera Shyness</h3>
+                    <p>You want to build a channel but can't stand being on camera. Traditional advice says "just be yourself"—but that doesn't work if you're introverted.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">
+                        <i data-lucide="clock" style="width: 30px; height: 30px;"></i>
+                    </div>
+                    <h3>Time Drain</h3>
+                    <p>Editing takes 10+ hours per video. Scripting. Recording. Thumbnails. SEO. It's a full-time job before you earn a single dollar.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">
+                        <i data-lucide="trending-down" style="width: 30px; height: 30px;"></i>
+                    </div>
+                    <h3>Algorithm Confusion</h3>
+                    <p>You upload consistently but get 47 views per video. The algorithm seems random, and "experts" give contradictory advice.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">
+                        <i data-lucide="wallet" style="width: 30px; height: 30px;"></i>
+                    </div>
+                    <h3>Monetization Blocks</h3>
+                    <p>You finally get views but can't monetize. Or you get monetized but make $0.02 per video. The math doesn't work.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">
+                        <i data-lucide="users" style="width: 30px; height: 30px;"></i>
+                    </div>
+                    <h3>Saturated Niches</h3>
+                    <p>Every niche seems overcrowded. How do you compete with channels that have millions of subscribers and teams of editors?</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">
+                        <i data-lucide="brain" style="width: 30px; height: 30px;"></i>
+                    </div>
+                    <h3>Information Overload</h3>
+                    <p>Too many strategies, too many tools, too many "gurus." You end up paralyzed, watching another course instead of taking action.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">The Breakthrough</div>
+                <h2 class="section-title">The Automation Blueprint</h2>
+                <p class="section-subtitle">A systematic approach that removes you from the equation while scaling your income</p>
+            </div>
+
+            <div class="solution-grid">
+                <div class="solution-content">
+                    <h3>Imagine Running 5 Channels Simultaneously Without Creating a Single Video Yourself</h3>
+                    <p>Our proven system leverages AI tools, outsourcing networks, and data-driven content strategies to build faceless YouTube empires on autopilot.</p>
+                    
+                    <ul class="feature-list">
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            <span>AI-powered script generation that hooks viewers instantly</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            <span>Voice cloning technology for consistent narration</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            <span>Automated editing workflows that cut production time by 90%</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            <span>Thumbnail psychology that guarantees clicks</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            <span>Monetization stacking (Ads, Affiliates, Digital Products)</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            <span>Team building frameworks for true passive income</span>
+                        </li>
+                    </ul>
+
+                    <a href="#pricing" class="btn-primary" style="margin-top: 2rem;">
+                        Get Instant Access
+                        <i data-lucide="zap"></i>
+                    </a>
+                </div>
+
+                <div class="solution-visual">
+                    <div class="dashboard-mockup">
+                        <div class="mockup-header">
+                            <div class="dot dot-red"></div>
+                            <div class="dot dot-yellow"></div>
+                            <div class="dot dot-green"></div>
+                        </div>
+                        <div class="mockup-content">
+                            <div class="mockup-stat">
+                                <div>
+                                    <div class="mockup-stat-label">Monthly Revenue</div>
+                                    <div style="font-size: 0.8rem; color: var(--gray);">Channel #3</div>
+                                </div>
+                                <div class="mockup-stat-value">$24.5K</div>
+                            </div>
+                            <div class="mockup-stat">
+                                <div>
+                                    <div class="mockup-stat-label">Subscriber Growth</div>
+                                    <div style="font-size: 0.8rem; color: var(--gray);">Last 28 days</div>
+                                </div>
+                                <div class="mockup-stat-value" style="color: var(--accent);">+12,847</div>
+                            </div>
+                            <div class="mockup-stat">
+                                <div>
+                                    <div class="mockup-stat-label">RPM</div>
+                                    <div style="font-size: 0.8rem; color: var(--gray);">Average</div>
+                                </div>
+                                <div class="mockup-stat-value" style="color: #28c840;">$18.50</div>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 1rem; margin-top: 1rem;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem;">
+                                    <span style="color: var(--gray);">Automation Status</span>
+                                    <span style="color: #28c840;">Active</span>
+                                </div>
+                                <div style="height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
+                                    <div style="width: 94%; height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: 3px;"></div>
+                                </div>
+                                <div style="font-size: 0.8rem; color: var(--gray); margin-top: 0.5rem;">94% Automated</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section class="curriculum" id="curriculum">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Course Content</div>
+                <h2 class="section-title">6-Week Mastery Program</h2>
+                <p class="section-subtitle">Everything you need to build, automate, and scale your YouTube empire</p>
+            </div>
+
+            <div class="modules">
+                <div class="module-card">
+                    <div class="module-number">01</div>
+                    <div class="module-icon">
+                        <i data-lucide="compass" style="width: 24px; height: 24px;"></i>
+                    </div>
+                    <h3>Foundation & Niche Selection</h3>
+                    <p>Discover high-RPM niches with low competition. Validate demand before creating a single video.</p>
+                    <ul class="module-topics">
+                        <li>Market research frameworks</li>
+                        <li>Competitor gap analysis</li>
+                        <li>Revenue potential calculator</li>
+                        <li>Brand identity setup</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-number">02</div>
+                    <div class="module-icon">
+                        <i data-lucide="bot" style="width: 24px; height: 24px;"></i>
+                    </div>
+                    <h3>AI Content Production</h3>
+                    <p>Leverage cutting-edge AI to produce studio-quality content without expensive equipment.</p>
+                    <ul class="module-topics">
+                        <li>Script generation with ChatGPT/Claude</li>
+                        <li>AI voiceover mastery (11 Labs)</li>
+                        <li>Automated video editing</li>
+                        <li>Stock footage sourcing</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-number">03</div>
+                    <div class="module-icon">
+                        <i data-lucide="image" style="width: 24px; height: 24px;"></i>
+                    </div>
+                    <h3>Thumbnail & Title Psychology</h3>
+                    <p>Master the click. Create thumbnails that stop the scroll and titles that demand attention.</p>
+                    <ul class="module-topics">
+                        <li>Color psychology frameworks</li>
+                        <li>Faceless thumbnail templates</li>
+                        <li>CTR optimization tactics</li>
+                        <li>A/B testing protocols</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-number">04</div>
+                    <div class="module-icon">
+                        <i data-lucide="bar-chart-2" style="width: 24px; height: 24px;"></i>
+                    </div>
+                    <h3>Algorithm Domination</h3>
+                    <p>Reverse-engineer the YouTube algorithm to get your videos recommended to millions.</p>
+                    <ul class="module-topics">
+                        <li>SEO mastery for faceless channels</li>
+                        <li>Retention hacking techniques</li>
+                        <li>End screen strategies</li>
+                        <li>Playlist architecture</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-number">05</div>
+                    <div class="module-icon">
+                        <i data-lucide="coins" style="width: 24px; height: 24px;"></i>
+                    </div>
+                    <h3>Monetization Stacking</h3>
+                    <p>Don't rely on AdSense alone. Build multiple revenue streams from day one.</p>
+                    <ul class="module-topics">
+                        <li>Affiliate marketing integration</li>
+                        <li>Digital product creation</li>
+                        <li>Sponsorship acquisition</li>
+                        <li>Membership programs</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-number">06</div>
+                    <div class="module-icon">
+                        <i data-lucide="users" style="width: 24px; height: 24px;"></i>
+                    </div>
+                    <h3>Team Building & Scaling</h3>
+                    <p>Remove yourself completely. Build a team that runs your empire while you sleep.</p>
+                    <ul class="module-topics">
+                        <li>Hiring virtual assistants</li>
+                        <li>Content calendar automation</li>
+                        <li>Quality control systems</li>
+                        <li>Multi-channel expansion</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-bg"></div>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Success Stories</div>
+                <h2 class="section-title">Students Getting Real Results</h2>
+                <p class="section-subtitle">Join thousands who've replaced their 9-5 with automated YouTube income</p>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i data-lucide="star" style="width: 20px; height: 20px; fill: currentColor;"></i>
+                        <i data-lucide="star" style="width: 20px; height: 20px; fill: currentColor;"></i>
+                        <i data-lucide="star" style="width: 20px; height: 20px; fill: currentColor;"></i>
+                        <i data-lucide="star" style="width: 20px; height: 20px; fill: currentColor;"></i>
+                        <i data-lucide="star" style="width: 20px; height: 20px; fill: currentColor;"></i>
+                    </div>
+                    <p class="testimonial-text">"I was skeptical about faceless channels, but CrazY x Malik's system is different. Hit $10K months in 4 months using the AI workflows. Never shown my face once."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JD</div>
+                        <div class="author-info">
+                            <h4>Jason Drake</h4>
+                            <p>Former Construction Worker</p>
+                            <div class="results-tag">$14.2K/month</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card featured">
+                    <div class="stars">
+                        <i data-lucide="star" style="width: 20px; height: 20px; fill: currentColor;"></i>
+                        <i data-lucide="star" style="width: 20px; height: 20px; fill: currentColor;"></i>
+                        <i data-lucide="star" style="width: 20px; height: 20px; fill: currentColor;"></i>
+                        <i data-lucide="star" style="width: 20px; height: 20px; fill: currentColor;"></i>
+                        <i data-lucide="star" style="width: 20px; height: 20px; fill: currentColor;"></i>
+                    </div>
+                    <p class="testimonial-text">"The automation module alone is worth 10x the price. I now run 3 channels with 2 VAs and work maybe 5 hours a week. The rest is handled by systems. Life-changing."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SK</div>
+                        <div class="author-info">
+                            <h4>Sarah Kim</h4>
+                            <p>Marketing Manager → Full-time Creator</p>
+                            <div class="results-tag">3 Channels • $38K/month</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i data-lucide="star" style="width: 20px; height: 20px; fill: currentColor;"></i>
+                        <i data-lucide="star" style="width: 20px; height: 20px; fill: currentColor;"></i>
+                        <i data-lucide="star" style="width: 20px; height: 20px; fill: currentColor;"></i>
+                        <i data-lucide="star" style="width: 20px; height: 20px; fill: currentColor;"></i>
+                        <i data-lucide="star" style="width: 20px; height: 20px; fill: currentColor;"></i>
+                    </div>
+                    <p class="testimonial-text">"Tried 3 other courses before this. None compared. The niche selection framework helped me find a goldmine with almost no competition. First video hit 100K views."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h4>Marcus Rodriguez</h4>
+                            <p>College Student</p>
+                            <div class="results-tag">First video: 2.3M views</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Investment</div>
+                <h2 class="section-title">Choose Your Path</h2>
+                <p class="section-subtitle">One-time investment. Lifetime access. Future updates included.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <p class="description">Perfect for testing the waters</p>
+                    <div class="price">$497</div>
+                    <div class="price-period">One-time payment</div>
+                    
+                    <ul class="pricing-features">
+                        <li class="included"><i data-lucide="check"></i> Core Training (Modules 1-3)</li>
+                        <li class="included"><i data-lucide="check"></i> Private Discord Community</li>
+                        <li class="included"><i data-lucide="check"></i> Basic Templates</li>
+                        <li><i data-lucide="x" style="opacity: 0.3;"></i> Advanced Automation</li>
+                        <li><i data-lucide="x" style="opacity: 0.3;"></i> 1-on-1 Coaching</li>
+                        <li><i data-lucide="x" style="opacity: 0.3;"></i> Done-for-you Setup</li>
+                    </ul>
+                    
+                    <button class="btn-pricing" onclick="alert('Redirect to payment gateway')">Get Started</button>
+                </div>
+
+                <div class="pricing-card popular">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <h3>Automation Pro</h3>
+                    <p class="description">Complete system for serious builders</p>
+                    <div class="price">$997</div>
+                    <div class="price-period">One-time payment</div>
+                    
+                    <ul class="pricing-features">
+                        <li class="included"><i data-lucide="check"></i> Full 6-Week Program</li>
+                        <li class="included"><i data-lucide="check"></i> VIP Discord + Weekly Calls</li>
+                        <li class="included"><i data-lucide="check"></i> Advanced AI Workflows</li>
+                        <li class="included"><i data-lucide="check"></i> Automation Scripts</li>
+                        <li class="included"><i data-lucide="check"></i> 2 Group Coaching Sessions</li>
+                        <li><i data-lucide="x" style="opacity: 0.3;"></i> 1-on-1 Channel Audit</li>
+                    </ul>
+                    
+                    <button class="btn-pricing" onclick="alert('Redirect to payment gateway')">Enroll Now</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Empire Builder</h3>
+                    <p class="description">White-glove service for rapid scaling</p>
+                    <div class="price">$2,497</div>
+                    <div class="price-period">One-time payment</div>
+                    
+                    <ul class="pricing-features">
+                        <li class="included"><i data-lucide="check"></i> Everything in Pro</li>
+                        <li class="included"><i data-lucide="check"></i> 4 Private Coaching Calls</li>
+                        <li class="included"><i data-lucide="check"></i> Done-for-you Channel Setup</li>
+                        <li class="included"><i data-lucide="check"></i> Direct Access to Malik</li>
+                        <li class="included"><i data-lucide="check"></i> Team Building Blueprint</li>
+                        <li class="included"><i data-lucide="check"></i> Lifetime Updates</li>
+                    </ul>
+                    
+                    <button class="btn-pricing" onclick="alert('Redirect to payment gateway')">Apply Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">FAQ</div>
+                <h2 class="section-title">Common Questions</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do I need any prior experience with YouTube?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Absolutely not. The course is designed to take you from zero to automated income, regardless of your background. We cover everything from basic channel setup to advanced automation. Many of our most successful students started with zero knowledge of video creation.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>How long until I see results?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Most students publish their first automated video within 2 weeks. Monetization typically begins within 30-60 days, with significant income ($1K+) appearing around month 3-4. Results vary based on niche selection and consistency, but the system is designed for rapid validation and scaling.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>What additional costs are involved?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Beyond the course investment, you'll need approximately $50-100/month for essential tools (AI voice, editing software, keyword research). We provide discount codes and free alternatives where possible. Many students start with minimal investment and reinvest profits into better tools as they grow.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Is this compliant with YouTube's policies?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        100%. We teach white-hat automation that works within YouTube's Terms of Service. No bots, no fake engagement, no copyright violations. Our methods focus on creating genuine value for viewers using AI assistance, which YouTube explicitly allows and even encourages.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do you offer a refund policy?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes. We offer a 30-day "Action-Taker" guarantee. If you complete the first two modules, implement the strategies, and don't see potential for growth, we'll refund your investment. We only ask that you show you made a genuine effort—this keeps our community serious and committed.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-box">
+            <h2>Your Empire Awaits</h2>
+            <p>Join 2,500+ creators building automated income streams. The longer you wait, the more you leave on the table.</p>
+            <a href="#pricing" class="btn-primary" style="font-size: 1.3rem; padding: 1.5rem 3rem;">
+                Enroll Now - Start Today
+                <i data-lucide="arrow-right"></i>
+            </a>
+            <div class="guarantee">
+                <i data-lucide="shield-check" style="color: var(--primary);"></i>
+                <span>30-Day Money-Back Guarantee • Instant Access • Lifetime Updates</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="brand">CrazY x Malik</div>
+                <p>Empowering creators to build automated YouTube empires without sacrificing their privacy or time. Join the revolution of faceless content entrepreneurs.</p>
+                <div class="social-links">
+                    <a href="#"><i data-lucide="youtube" style="width: 20px; height: 20px;"></i></a>
+                    <a href="#"><i data-lucide="twitter" style="width: 20px; height: 20px;"></i></a>
+                    <a href="#"><i data-lucide="instagram" style="width: 20px; height: 20px;"></i></a>
+                    <a href="#"><i data-lucide="linkedin" style="width: 20px; height: 20px;"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Course</h4>
+                <ul>
+                    <li><a href="#curriculum">Curriculum</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#testimonials">Success Stories</a></li>
+                    <li><a href="#">Free Training</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="#">Earnings Disclaimer</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 CrazY x Malik. All rights reserved. Not affiliated with YouTube or Google.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(10, 10, 10, 0.95)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 10, 0.8)';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.pain-card, .module-card, .testimonial-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
